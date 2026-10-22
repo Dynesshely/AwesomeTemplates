@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:7c3aed&height=200&section=header&text=AwesomeTemplates&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=可以直接拿去用的%20UI%20模板集&descAlignY=58&descSize=18" width="100%" alt="AwesomeTemplates" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0ea5e9,100:7c3aed&height=200&section=header&text=AwesomeTemplates&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=UI%20templates%20that%20just%20work&descAlignY=58&descSize=18" width="100%" alt="AwesomeTemplates" />
 
 **每个模板都是一个能跑起来的完整工程，而不是代码片段。**
 
