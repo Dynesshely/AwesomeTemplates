@@ -191,6 +191,9 @@ ApplicationWindow {
 
         ControlsPage {
             width: scroll.availableWidth
+            // 卡片跟窗口壳用同一个面板色：Mica 模式下它是半透明的，卡片必须跟着变，
+            // 否则会出现"卡片不透明、周围透出壁纸"的割裂感。
+            surfaceColor: root.surfaceColor
         }
     }
 

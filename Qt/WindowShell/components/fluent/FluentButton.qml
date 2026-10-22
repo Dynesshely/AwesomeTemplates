@@ -37,8 +37,8 @@ AbstractButton {
     property int iconSize: 16
     /// 图标与文字间距。
     property int contentSpacing: 8
-    /// 水平内边距。
-    property int horizontalPadding: 14
+    /// 水平内边距（不能叫 horizontalPadding：那是 Control 的 FINAL 属性）。
+    property int sidePadding: 14
 
     readonly property bool accentKind: kind === "accent"
     readonly property bool dangerKind: kind === "danger"
@@ -78,8 +78,8 @@ AbstractButton {
     }
 
     hoverEnabled: true
-    leftPadding: control.horizontalPadding
-    rightPadding: control.horizontalPadding
+    leftPadding: control.sidePadding
+    rightPadding: control.sidePadding
     topPadding: 0
     bottomPadding: 0
     implicitWidth: contentArea.implicitWidth + leftPadding + rightPadding

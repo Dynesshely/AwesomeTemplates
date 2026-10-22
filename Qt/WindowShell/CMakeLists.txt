@@ -9,6 +9,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 find_package(Qt6 6.8 REQUIRED COMPONENTS Core Gui Quick QuickControls2)
 qt_standard_project_setup()
+# components/fluent、pages 都是含 .qml 的子目录：NEW 策略让 Qt 自动为它们生成 qmldir，
+# 否则每次 configure 都会报 QTP0004 警告。
+qt_policy(SET QTP0004 NEW)
 
 # 新增 C++ 源文件不用改本文件：CONFIGURE_DEPENDS 让 ninja 在目录变化时自动重新 glob。
 file(GLOB_RECURSE SHELL_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")

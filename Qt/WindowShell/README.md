@@ -17,13 +17,15 @@
 | 窗口装饰 | DWM 圆角、阴影、激活态强调色边框，最大化时自动切直角并去掉边框 |
 | 关闭过渡 | 系统不给自绘窗口播关闭动画，QML 里 130ms 淡出后二次 close |
 | 图标 | Fluent System Icons（MIT）字体 + 语义名映射，见 `components/Icons.qml` |
+| 控件库 | `components/fluent/`：按钮 / 开关 / 复选框 / 滑块 / 进度条 / 输入框 / 下拉框 / 提示条 / 卡片 / 标签条，全部自绘 |
 
 ## 目录
 
 ```
 WindowShell/
 ├── Main.qml                 窗口壳（标题栏 / 内容 / 状态栏 / 关闭淡出）
-├── components/              自绘控件（CaptionButton / IconButton / Icons / AboutDialog ...）
+├── components/              窗口壳控件（CaptionButton / IconButton / Icons / AboutDialog）
+│   └── fluent/              Fluent 控件库（见下表）
 ├── pages/ControlsPage.qml   控件展示页
 ├── src/
 │   ├── main.cpp             入口：装壳、下发 Mica、注入 context 属性
@@ -50,6 +52,27 @@ cmake --build --preset debug
 
 - `--native-frame`：保留系统标题栏（对照用，排查窗口行为时非常有用）
 - `--no-mica`：关闭 Mica，窗口退回不透明
+
+## 控件库
+
+全部自绘（不依赖 Qt Quick Controls 的默认外观），启动后即是展示页：
+
+| 控件 | 文件 | 关键属性 |
+|---|---|---|
+| 按钮 | `fluent/FluentButton.qml` | `kind`（accent / default / danger）、`iconName`、`iconFilled`、`radius` |
+| 开关 | `fluent/ToggleSwitch.qml` | `checked`、`accessibleLabel`；40×20，切换 120ms |
+| 复选框 | `fluent/FluentCheckBox.qml` | `checked`、`tristate`、只读 `partiallyChecked` |
+| 滑块 | `fluent/FluentSlider.qml` | `from`、`to`、`value`、`stepSize`、`handleSize` |
+| 进度条 | `fluent/FluentProgressBar.qml` | `value`、`indeterminate`、`progressColor` |
+| 输入框 | `fluent/FluentTextField.qml` | `text`、`placeholderText`、`echoMode`、`readOnly` |
+| 下拉框 | `fluent/FluentComboBox.qml` | `model`、`textRole`、`currentIndex` |
+| 信息条 | `fluent/InfoBar.qml` | `severity`（info / success / warning / error）、`title`、`text`、`open`、`closable` |
+| 卡片 | `fluent/FluentCard.qml` | 默认属性即内容；`radius`、`color`、`padding`、`spacing` |
+| 标签条 | `fluent/FluentTabBar.qml` | `tabs`、`currentIndex`、`accentColor` |
+
+控件的颜色是写死的暗色 Fluent 值（accent `#4c9aff`、卡片 `#232323`、描边 `#3a3a3a`），
+页面底色由 `ControlsPage.surfaceColor` 决定——`Main.qml` 把窗口壳的 `surfaceColor` 传下去，
+Mica 模式下卡片会跟着面板一起半透明。
 
 ## 把这些搬进你自己的项目
 

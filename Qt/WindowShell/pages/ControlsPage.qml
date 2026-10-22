@@ -554,7 +554,7 @@ Flickable {
                 Layout.fillWidth: true
                 tabs: [qsTr("常规"), qsTr("外观"), qsTr("高级")]
                 currentIndex: page.tabIndex
-                onTabActivated: page.tabIndex = index
+                onTabActivated: function (index) { page.tabIndex = index }
             }
             Label {
                 text: qsTr("当前标签：%1").arg(tabBarDemo.tabs[tabBarDemo.currentIndex])

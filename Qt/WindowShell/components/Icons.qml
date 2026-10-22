@@ -63,6 +63,13 @@ QtObject {
         "folder":        [0xE8EB, 0xE8EA],
         "document":      [0xE6E9, 0xE6E8],
         "sync":          [0xE171, 0xE170],
+        // 状态类图标：InfoBar 的四种 severity 全靠它们，补进表里以免各控件自己拼字符。
+        // 码位来自上游 ic_fluent_info / checkmark_circle / warning / error_circle / question_circle。
+        "info":          [0xEA88, 0xEA87],
+        "success":       [0xE462, 0xE461],
+        "warning":       [0xF561, 0xF560],
+        "error":         [0xE877, 0xE876],
+        "question":      [0xEF07, 0xEF06],
         "apps":          [0xE07D, 0xE07C],
         // 自绘标题栏的窗口控制：Fluent 上游名分别是 subtract / square /
         // square_multiple / dismiss 的 _20_ 版本，这里是它们 20px 的 regular 与 filled 码位。

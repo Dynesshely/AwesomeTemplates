@@ -5,10 +5,9 @@ import WindowShell
 
 /// Fluent 信息条：severity 决定颜色与左侧符号，标题/正文 wrap，右侧可关闭。
 ///
-/// 为什么左侧用字符徽标而不是 Icons：Icons.qml 只登记了导航/文件语义的名字，
-/// 没有 info / success / warning / error。按约束"不存在就用纯文字或几何图形"，
-/// 这里用带色底的圆形字符（i / ✓ / ! / ×），不编造不存在的图标名。
-/// 关闭按钮则使用已登记的 dismiss，直接复用现有 IconButton。
+/// 左侧徽标用 Icons 的状态图标：info / success / warning / error 已登记在
+/// components/Icons.qml（码位取自上游 ic_fluent_info / checkmark_circle / warning /
+/// error_circle）。关闭按钮复用 IconButton + dismiss。
 ///
 /// 为什么 open 放在组件内部管理：关闭按钮必须能立即收起；调用方只需要在
 /// 需要重新展示时把 open 设回 true，不必自己维护"已关闭"集合。
@@ -55,17 +54,22 @@ Rectangle {
         }
     }
 
-    readonly property string severityGlyph: {
+    /// 语义图标名（对应 Icons.qml 的 map）；未知 severity 一律按 info 处理。
+    readonly property string severityIcon: {
         switch (bar.severity) {
         case "success":
-            return "✓"
+            return "success"
         case "warning":
-            return "!"
+            return "warning"
         case "error":
-            return "×"
+            return "error"
         default:
-            return "i"
+            return "info"
         }
+    }
+
+    Icons {
+        id: icons
     }
 
     implicitWidth: 520
@@ -91,10 +95,10 @@ Rectangle {
 
             Label {
                 anchors.centerIn: parent
-                text: bar.severityGlyph
+                text: icons.glyph(bar.severityIcon)
+                font.family: icons.fontFamily
                 color: bar.severityColor
-                font.pixelSize: 12
-                font.bold: true
+                font.pixelSize: 14
             }
         }
 
