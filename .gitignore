@@ -1,0 +1,10 @@
+build/
+.toolchain/
+*.user
+*.user.*
+CMakeUserPresets.json
+.qtc_clangd/
+compile_commands.json
+*.swp
+.DS_Store
+Thumbs.db
