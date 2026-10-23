@@ -53,9 +53,11 @@ Qt/<模板名>/
 
 ## Star History
 
-<a href="https://star-history.com/#Dynesshely/AwesomeTemplates&Date">
-  <img src="https://api.star-history.com/svg?repos=Dynesshely/AwesomeTemplates&type=Date" width="600" alt="Star History" />
-</a>
+<!-- 深色主题：与仓库其余配图（深色界面截图）统一，浅色模式下也不刺眼 -->
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Dynesshely/AwesomeTemplates&type=Date&theme=dark" />
+  <img src="https://api.star-history.com/svg?repos=Dynesshely/AwesomeTemplates&type=Date&theme=dark" width="600" alt="Star History" />
+</picture>
 
 ## License
 
