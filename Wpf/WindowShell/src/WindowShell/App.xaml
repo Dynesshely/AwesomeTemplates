@@ -1,0 +1,43 @@
+<Application x:Class="WindowShell.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- 壳自身的样式在 Themes/Generic.xaml（WPF 按 DefaultStyleKey 自动加载），这里只放演示页用的配色 -->
+        <SolidColorBrush x:Key="Bg" Color="#121519"/>
+        <SolidColorBrush x:Key="Card" Color="#1A1E24"/>
+        <SolidColorBrush x:Key="Fg" Color="#E7E9EC"/>
+        <SolidColorBrush x:Key="Muted" Color="#8B949E"/>
+        <SolidColorBrush x:Key="Accent" Color="#5AA0FF"/>
+
+        <!-- 演示用按钮：暗色、圆角小，仅为了让展示页不出现系统默认白按钮 -->
+        <Style x:Key="DemoButton" TargetType="Button">
+            <Setter Property="Background" Value="#22FFFFFF"/>
+            <Setter Property="Foreground" Value="{StaticResource Fg}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="14,7"/>
+            <Setter Property="Margin" Value="0,0,10,8"/>
+            <Setter Property="FontSize" Value="12.5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="b" Background="{TemplateBinding Background}" CornerRadius="6"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="b" Property="Background" Value="#33FFFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="b" Property="Background" Value="#14FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

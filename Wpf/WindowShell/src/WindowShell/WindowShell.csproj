@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>WindowShell</AssemblyName>
+    <RootNamespace>WindowShell</RootNamespace>
+    <ApplicationIcon>assets\app.ico</ApplicationIcon>
+    <Platforms>AnyCPU</Platforms>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 供 XAML 里的 Icon="assets/app.ico" 使用；ApplicationIcon 只影响 exe 的图标 -->
+    <Resource Include="assets\app.ico" />
+  </ItemGroup>
+
+</Project>

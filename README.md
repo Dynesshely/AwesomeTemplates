@@ -8,6 +8,7 @@
 ![C++](https://img.shields.io/badge/C%2B%2B-20-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-11-0078D4?style=for-the-badge&logo=windows11&logoColor=white)
 ![CMake](https://img.shields.io/badge/CMake-3.24%2B-064F8C?style=for-the-badge&logo=cmake&logoColor=white)
+![WPF](https://img.shields.io/badge/WPF-.NET%208-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-3DA639?style=for-the-badge)
 ![PRs](https://img.shields.io/badge/PRs-welcome-7c3aed?style=for-the-badge)
 
@@ -18,6 +19,7 @@
 | 模板 | 说明 | 预览 |
 |---|---|---|
 | **[Qt / WindowShell](Qt/WindowShell)** | Qt 6 的 Windows Fluent 窗口壳：自绘标题栏、Snap Layouts、Mica、原生最小化/最大化动画，外加 10 个自绘 Fluent 控件 | <img src="Qt/WindowShell/docs/screenshot.png" width="420" /> |
+| **[WPF / WindowShell](Wpf/WindowShell)** | WPF (.NET 8) 的 Windows 窗口壳：自绘标题栏、Snap Layouts、原生最小化/最大化/还原动画、深色标题栏，样式与逻辑分离可直接搬走 | <img src="Wpf/WindowShell/docs/screenshot.png" width="420" /> |
 
 ## 为什么值得用
 
@@ -38,6 +40,14 @@ cmake --build --preset debug
 ```
 
 依赖：Qt 6.8+、CMake 3.24+、Ninja、C++20 编译器（MinGW / MSVC 均可）。
+
+WPF 模板只需 .NET 8 SDK：
+
+```powershell
+cd AwesomeTemplates/Wpf/WindowShell/src/WindowShell
+dotnet build -c Release
+.\bin\Release\net8.0-windows\WindowShell.exe
+```
 
 ## 目录约定
 
@@ -62,3 +72,5 @@ Qt/<模板名>/
 ## License
 
 [MIT](LICENSE) © 2026 Dynesshely
+
+WPF 模板同理：放在 Wpf/<模板名>/src/<工程名>/，其中 Chrome/ 与 Themes/ 是可整体拷走的部分。
